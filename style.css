@@ -1,0 +1,104 @@
+/* Import fonts from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lato:wght@400;700&display=swap');
+
+body {
+    font-family: 'Lato', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #FFF6E3; /* Light cream background */
+    color: #333;
+}
+
+/* Header */
+header {
+    background-color: #BFE6FF; /* Light blue */
+    color: #333;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+header h1 {
+    font-family: 'Abril Fatface', serif;
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+header h2, header h3 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    background-color: #CDC1FF; /* Light lavender */
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    padding: 10px 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333; /* Contrast with lavender */
+    font-weight: bold;
+}
+
+/* Main Content */
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 20px;
+    background: #FFFFFF; /* White for contrast */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+section h3 {
+    font-family: 'Abril Fatface', serif;
+    color: #FFCCEA; /* Light pink */
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+/* Textarea and Buttons */
+textarea {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 10px;
+    border: 2px solid #CDC1FF; /* Light lavender border */
+    border-radius: 5px;
+    font-family: 'Lato', sans-serif;
+}
+
+button {
+    background-color: #FFCCEA; /* Light pink */
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #FFC0CB; /* Darker pink */
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #BFE6FF; /* Light blue */
+    color: #333;
+    font-family: 'Lato', sans-serif;
+}

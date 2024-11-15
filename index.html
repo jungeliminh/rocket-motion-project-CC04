@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rocket Motion Project</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Project 11: Studying the Motion of a Rocket</h1>
+        <h2>Group 15 - Class: CC04</h2>
+        <h3>Completion Date: November 20, 2024</h3>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#theory">Theoretical Background</a></li>
+            <li><a href="#matlab">MATLAB Code</a></li>
+            <li><a href="#results">Results & Discussion</a></li>
+            <li><a href="#conclusion">Conclusion</a></li>
+            <li><a href="#references">References</a></li>
+            <li><a href="#acknowledgments">Acknowledgments</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="introduction">
+            <h3>1. Introduction</h3>
+            <p>Overview of rocket motion and its real-world applications in aerospace and military fields.</p>
+        </section>
+
+        <section id="theory">
+            <h3>2. Theoretical Background</h3>
+            <ul>
+                <li><strong>Newton's Laws:</strong> Inertia, force, and reaction principles.</li>
+                <li><strong>Momentum Conservation:</strong> Application in rocket propulsion.</li>
+                <li><strong>Problem-Solving Method:</strong> Steps for calculating motion parameters.</li>
+            </ul>
+        </section>
+
+        <section id="matlab">
+            <h3>3. MATLAB Code and Explanation</h3>
+            <textarea readonly>
+% MATLAB code for rocket motion
+syms m(t) v(t) x(t)
+m(t) = m0 - dm_dt * t;
+v(t) = int(dm_dt / m(t), t) + v0;
+disp('Rocket Motion Equation:');
+disp(v(t));
+            </textarea>
+        </section>
+
+        <section id="results">
+            <h3>4. Results and Discussion</h3>
+            <p>Analysis of velocity, position, and acceleration graphs, and the effect of environmental factors.</p>
+        </section>
+
+        <section id="conclusion">
+            <h3>5. Conclusion</h3>
+            <p>Summarize findings and propose future research directions.</p>
+        </section>
+
+        <section id="references">
+            <h3>6. References</h3>
+            <ul>
+                <li><a href="https://nasa.gov">NASA</a></li>
+                <li><a href="#">Rocket Mechanics Guide</a></li>
+            </ul>
+        </section>
+
+        <section id="acknowledgments">
+            <h3>7. Acknowledgments</h3>
+            <p>We sincerely thank our mentors, peers, and family for their support.</p>
+            <h4>Team Members:</h4>
+            <ul>
+                <li><strong>2452192:</strong> Đoàn Công Duy</li>
+                <li><strong>2452900:</strong> Đoàn Ngọc Uyên Nhi</li>
+                <li><strong>2452493:</strong> Hồ Sĩ Quốc Khánh</li>
+                <li><strong>2452576:</strong> Hoàng Nguyễn Anh Khôi</li>
+                <li><strong>2450018:</strong> Hứa Tuệ Minh</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>Group 15, Class CC04 | Completion Date: November 20, 2024</p>
+    </footer>
+</body>
+</html>
