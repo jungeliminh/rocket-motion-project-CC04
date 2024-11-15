@@ -1,102 +1,79 @@
-/* Importing Google Fonts */
+/* Import fonts from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lato:wght@400;700&display=swap');
 
 /* Global Styles */
 body {
     font-family: 'Lato', sans-serif;
-    background-color: #FEECB3; /* Light yellow background */
-    color: #333;
+    line-height: 1.6;
     margin: 0;
     padding: 0;
+    background-color: #FEECB3; /* Light yellow background */
+    color: #333;
 }
 
-/* Header Styles */
+/* Header */
 header {
-    background-color: #BFE6FF; /* Light blue background */
+    background-color: #BFE6FF; /* Light blue */
     color: #333;
-    padding: 2rem;
+    padding: 1.5rem;
     text-align: center;
 }
 
-header h1 {
+header h1, header h2, header h3 {
     font-family: 'Abril Fatface', serif;
-    font-size: 2.8rem;
-    color: #AD49E1; /* Purple color */
-    margin: 0.5rem 0;
+    color: #AD49E1; /* Purple color for contrast */
 }
 
-header h2, header h3 {
-    font-size: 1.5rem;
-    font-weight: normal;
-    margin: 0.3rem 0;
-}
-
-/* Navigation Styles */
+/* Navigation */
 nav ul {
-    display: flex;
-    justify-content: center;
-    background-color: #CDC1FF; /* Light lavender */
     list-style: none;
-    padding: 0.8rem 0;
+    background-color: #CDC1FF; /* Light lavender */
+    text-align: center;
+    padding: 0;
     margin: 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 nav ul li {
-    margin: 0 15px;
+    display: inline;
+    padding: 10px 20px;
 }
 
 nav ul li a {
     text-decoration: none;
     color: #333;
     font-weight: bold;
-    transition: color 0.3s ease;
 }
 
-nav ul li a:hover {
-    color: #AD49E1; /* Purple on hover */
-}
-
-/* Main Content Styles */
+/* Main Content */
 main {
-    padding: 2rem;
-    max-width: 1000px;
-    margin: auto;
+    padding: 20px;
 }
 
 /* Section Styles */
 section {
-    background-color: #FFFFFF; /* White background for sections */
-    padding: 2rem;
-    margin-bottom: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-section:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    margin-bottom: 20px;
+    background: #FFFFFF;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 section h3 {
     font-family: 'Abril Fatface', serif;
-    color: #AD49E1; /* Purple color for section titles */
+    color: #AD49E1; /* Purple for contrast */
     font-size: 1.8rem;
-    margin-bottom: 1rem;
-    position: relative;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
 }
 
-section h3::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 3px;
-    background-color: #FFCCEA; /* Light pink underline */
-    margin-top: 0.5rem;
+/* Hover effect on headings */
+section h3:hover {
+    color: #BFE6FF; /* Light blue on hover */
+    cursor: pointer;
+    text-shadow: 2px 2px #FFF6E3;
 }
 
-/* Input Form Styles */
+/* Input Section */
 .input-section {
     display: flex;
     flex-direction: column;
@@ -118,15 +95,8 @@ section h3::after {
     border: 1px solid #AD49E1; /* Purple border */
     border-radius: 5px;
     font-size: 1rem;
-    transition: border-color 0.3s ease;
 }
 
-.input-section input:focus {
-    border-color: #FFCCEA; /* Light pink on focus */
-    outline: none;
-}
-
-/* Button Styles */
 .input-section button {
     margin-top: 1rem;
     padding: 0.8rem;
@@ -146,7 +116,32 @@ section h3::after {
     transform: scale(1.05);
 }
 
-/* Graph Section Styles */
+/* Team Members Section */
+.team-members {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 20px;
+}
+
+.member {
+    text-align: center;
+    margin: 10px;
+}
+
+.member img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.member p {
+    margin: 5px 0;
+    font-weight: bold;
+    color: #AD49E1; /* Purple color for names */
+}
+
+/* Graph Section */
 .graph-section {
     display: flex;
     flex-direction: column;
@@ -160,12 +155,11 @@ canvas {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Footer Styles */
+/* Footer */
 footer {
     text-align: center;
     padding: 15px;
-    background-color: #BFE6FF; /* Light blue footer */
+    background-color: #BFE6FF; /* Light blue */
     color: #333;
     font-family: 'Lato', sans-serif;
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
 }
