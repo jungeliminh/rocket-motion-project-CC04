@@ -1,104 +1,171 @@
-/* Import fonts from Google Fonts */
+/* Importing Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lato:wght@400;700&display=swap');
 
+/* Global Styles */
 body {
     font-family: 'Lato', sans-serif;
-    line-height: 1.6;
+    background-color: #FEECB3; /* Light yellow background */
+    color: #333;
     margin: 0;
     padding: 0;
-    background-color: #FFF6E3; /* Light cream background */
-    color: #333;
 }
 
-/* Header */
+/* Header Styles */
 header {
-    background-color: #BFE6FF; /* Light blue */
+    background-color: #BFE6FF; /* Light blue background */
     color: #333;
-    padding: 1.5rem;
+    padding: 2rem;
     text-align: center;
 }
 
 header h1 {
     font-family: 'Abril Fatface', serif;
-    font-size: 2.5rem;
-    margin: 0;
+    font-size: 2.8rem;
+    color: #AD49E1; /* Purple color */
+    margin: 0.5rem 0;
 }
 
 header h2, header h3 {
-    font-family: 'Lato', sans-serif;
-    font-weight: 400;
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin: 0.3rem 0;
 }
 
-/* Navigation */
+/* Navigation Styles */
 nav ul {
-    list-style: none;
+    display: flex;
+    justify-content: center;
     background-color: #CDC1FF; /* Light lavender */
-    text-align: center;
-    padding: 0;
+    list-style: none;
+    padding: 0.8rem 0;
     margin: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 nav ul li {
-    display: inline;
-    padding: 10px 20px;
+    margin: 0 15px;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: #333; /* Contrast with lavender */
+    color: #333;
     font-weight: bold;
+    transition: color 0.3s ease;
 }
 
-/* Main Content */
+nav ul li a:hover {
+    color: #AD49E1; /* Purple on hover */
+}
+
+/* Main Content Styles */
 main {
-    padding: 20px;
+    padding: 2rem;
+    max-width: 1000px;
+    margin: auto;
 }
 
+/* Section Styles */
 section {
-    margin-bottom: 20px;
-    background: #FFFFFF; /* White for contrast */
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #FFFFFF; /* White background for sections */
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
 section h3 {
     font-family: 'Abril Fatface', serif;
-    color: #FFCCEA; /* Light pink */
+    color: #AD49E1; /* Purple color for section titles */
     font-size: 1.8rem;
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
+    position: relative;
 }
 
-/* Textarea and Buttons */
-textarea {
-    width: 100%;
-    height: 150px;
-    margin-bottom: 10px;
-    border: 2px solid #CDC1FF; /* Light lavender border */
+section h3::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: #FFCCEA; /* Light pink underline */
+    margin-top: 0.5rem;
+}
+
+/* Input Form Styles */
+.input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #FFFFFF;
+    border: 2px solid #CDC1FF; /* Lavender border */
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.input-section label {
+    font-weight: bold;
+    color: #333;
+}
+
+.input-section input {
+    padding: 0.5rem;
+    border: 1px solid #AD49E1; /* Purple border */
     border-radius: 5px;
-    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
 }
 
-button {
+.input-section input:focus {
+    border-color: #FFCCEA; /* Light pink on focus */
+    outline: none;
+}
+
+/* Button Styles */
+.input-section button {
+    margin-top: 1rem;
+    padding: 0.8rem;
     background-color: #FFCCEA; /* Light pink */
     color: #333;
     border: none;
-    padding: 10px 20px;
+    font-size: 1rem;
     cursor: pointer;
     font-family: 'Lato', sans-serif;
     font-weight: bold;
     border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-button:hover {
-    background-color: #FFC0CB; /* Darker pink */
+.input-section button:hover {
+    background-color: #FFC0CB; /* Darker pink on hover */
+    transform: scale(1.05);
 }
 
-/* Footer */
+/* Graph Section Styles */
+.graph-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+canvas {
+    max-width: 100%;
+    height: 400px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer Styles */
 footer {
     text-align: center;
     padding: 15px;
-    background-color: #BFE6FF; /* Light blue */
+    background-color: #BFE6FF; /* Light blue footer */
     color: #333;
     font-family: 'Lato', sans-serif;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
 }
