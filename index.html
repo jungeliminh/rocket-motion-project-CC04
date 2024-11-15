@@ -4,98 +4,115 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rocket Motion Project</title>
-    <!-- Importing Google Fonts, Math.js, and Chart.js Libraries -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lato:wght@400;700&display=swap">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.6.4/math.min.js"></script>
+    <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        /* CSS Styling */
+        /* Custom styles for new color scheme and background image */
+        
         body {
             font-family: 'Lato', sans-serif;
-            background-color: #FEECB3;
+            line-height: 1.6;
+            background-color: #FEECB3; /* Light yellow background */
             color: #333;
             margin: 0;
             padding: 0;
         }
+
+        /* Background image for header */
         header {
-            background-color: #BFE6FF;
-            color: #333;
-            padding: 2rem;
+            background-image: url('https://drive.google.com/uc?export=view&id=1EaDzmYRhGOfvkb_k1B1OJ2pl5RjaPx9F');
+            background-size: cover;
+            background-position: center;
+            color: #FFFFFF;
+            padding: 3rem 0;
             text-align: center;
+            text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7);
         }
+
         header h1 {
             font-family: 'Abril Fatface', serif;
-            font-size: 2.8rem;
-            color: #AD49E1;
+            font-size: 3rem;
+            color: #FFFFFF;
             margin: 0.5rem 0;
         }
+
         header h2, header h3 {
             font-size: 1.5rem;
+            color: #FFD700; /* Gold for emphasis */
             margin: 0.3rem 0;
         }
+
+        /* Navigation styles */
         nav ul {
-            display: flex;
-            justify-content: center;
-            background-color: #CDC1FF;
             list-style: none;
-            padding: 0.8rem 0;
+            background-color: #444;
+            text-align: center;
+            padding: 0.5rem;
             margin: 0;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+
         nav ul li {
+            display: inline;
             margin: 0 15px;
         }
+
         nav ul li a {
             text-decoration: none;
-            color: #333;
+            color: #FFFFFF;
             font-weight: bold;
+            font-size: 1.1rem;
             transition: color 0.3s ease;
         }
+
         nav ul li a:hover {
-            color: #AD49E1;
+            color: #FFD700; /* Gold on hover */
         }
-        main {
-            padding: 2rem;
-            max-width: 1000px;
-            margin: auto;
-        }
+
+        /* Section styles */
         section {
             background-color: #FFFFFF;
-            padding: 2rem;
-            margin-bottom: 2rem;
+            margin: 1.5rem auto;
+            padding: 1.5rem;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
         }
+
         section h3 {
             font-family: 'Abril Fatface', serif;
-            color: #AD49E1;
+            color: #AD49E1; /* Purple color */
             font-size: 1.8rem;
-            position: relative;
+            margin-bottom: 1rem;
         }
-        section h3::after {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 3px;
-            background-color: #FFCCEA;
-            margin-top: 0.5rem;
+
+        /* Textarea for MATLAB code display */
+        textarea {
+            width: 100%;
+            height: 150px;
+            margin-top: 1rem;
+            border: 2px solid #CDC1FF; /* Lavender border */
+            border-radius: 5px;
+            font-family: 'Lato', sans-serif;
+            padding: 10px;
+            resize: none;
         }
-        .input-section {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            padding: 1rem;
+.input-section {
             background-color: #FFFFFF;
-            border: 2px solid #CDC1FF;
+            padding: 1.5rem;
             border-radius: 8px;
-            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 2rem auto;
         }
         .input-section label {
             font-weight: bold;
-            color: #333;
+            display: block;
+            margin-top: 1rem;
         }
         .input-section input {
+            width: 100%;
             padding: 0.5rem;
+            margin-top: 0.5rem;
             border: 1px solid #AD49E1;
             border-radius: 5px;
             font-size: 1rem;
@@ -108,6 +125,8 @@
             border: none;
             font-size: 1rem;
             cursor: pointer;
+            font-weight: bold;
+            border-radius: 5px;
             transition: background-color 0.3s ease, transform 0.2s ease;
         }
         .input-section button:hover {
@@ -117,35 +136,39 @@
         .graph-section {
             display: flex;
             flex-direction: column;
-            gap: 2rem;
+            align-items: center;
+            margin-top: 2rem;
         }
         canvas {
             max-width: 100%;
-            height: 400px;
+            height: 300px;
+            margin-top: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
+        /* Footer */
         footer {
+            background-color: #444;
+            color: #FFD700;
             text-align: center;
-            padding: 15px;
-            background-color: #BFE6FF;
-            color: #333;
+            padding: 1rem;
+            font-family: 'Lato', sans-serif;
+            font-size: 1rem;
         }
     </style>
 </head>
 <body>
-
-    <!-- Header Section -->
     <header>
-        <h1>Project 11: Studying the Motion of a Rocket</h1>
+        <h1>Rocket Motion Project</h1>
         <h2>Group 3 - Class: CC04</h2>
         <h3>November, 2024</h3>
     </header>
 
-    <!-- Navigation Section -->
     <nav>
         <ul>
             <li><a href="#introduction">Introduction</a></li>
             <li><a href="#theory">Theoretical Background</a></li>
-            <li><a href="#matlab">MATLAB Code and Simulation</a></li>
+            <li><a href="#matlab">MATLAB Code</a></li>
             <li><a href="#results">Results & Discussion</a></li>
             <li><a href="#conclusion">Conclusion</a></li>
             <li><a href="#references">References</a></li>
@@ -153,25 +176,24 @@
         </ul>
     </nav>
 
-    <!-- Main Content Section -->
     <main>
         <section id="introduction">
-            <h3>INTRODUCTION</h3>
+            <h3>1. Introduction</h3>
             <p>Overview of rocket motion and its real-world applications in aerospace and military fields.</p>
         </section>
 
         <section id="theory">
-            <h3>THEORETICAL BACKGROUND</h3>
+            <h3>2. Theoretical Background</h3>
             <ul>
-                <li><strong>NEWTON'S LAWS:</strong> Inertia, force, and reaction principles.</li>
-                <li><strong>MOMENTUM CONSERVATION:</strong> Application in rocket propulsion.</li>
-                <li><strong>PROBLEM-SOLVING METHOD:</strong> Steps for calculating motion parameters.</li>
+                <li><strong>Newton's Laws:</strong> Inertia, force, and reaction principles.</li>
+                <li><strong>Momentum Conservation:</strong> Application in rocket propulsion.</li>
+                <li><strong>Problem-Solving Method:</strong> Steps for calculating motion parameters.</li>
             </ul>
-            
         </section>
+
 <section id="matlab">
-            <h3>MATLAB CODE AND EXPLANATION</h3>
-            <textarea readonly>
+    <h3>3. MATLAB Code and Explanation</h3>
+    <textarea readonly>
 % Rocket Motion Analysis Using Symbolic Calculations
 
 % Define symbolic variables
@@ -222,107 +244,47 @@ disp('The symbolic solution for velocity as a function of time is:');
 disp(v_solution);
 disp('The symbolic solution for position as a function of time is:');
 disp(x_solution);
+    </textarea>
+</section>
 
-            </textarea>
         </section>
-        
-        <!-- MATLAB Code Simulation Section -->
-        <section id="matlab">
-            <h3>MATLAB CODE AND SIMULATION</h3>
-            <p>This section provides a web-based simulation of rocket motion using symbolic calculations, similar to MATLAB.</p>
 
-            <!-- Input Form for Rocket Parameters -->
-            <div class="input-section">
-                <label for="dm_dt">Fuel Combustion Rate (dm/dt) in kg/s (negative value):</label>
-                <input type="number" id="dm_dt" placeholder="-5" step="any" required>
-                
-                <label for="m0">Initial Mass of the Rocket (m0) in kg:</label>
-                <input type="number" id="m0" placeholder="5000" step="any" required>
-                
-                <label for="x0">Initial Position of the Rocket (x0) in meters:</label>
-                <input type="number" id="x0" placeholder="0" step="any" required>
-                
-                <label for="v_prime">Gas Propulsion Speed (v'') in m/s:</label>
-                <input type="number" id="v_prime" placeholder="3000" step="any" required>
+        <!-- Simulation Input and Output Section -->
+        <section id="simulation" class="input-section">
+            <h3>4. Simulation Input & Output</h3>
+            <label for="dm_dt">Fuel Combustion Rate (dm/dt) in kg/s (negative value):</label>
+            <input type="number" id="dm_dt" placeholder="-5" step="any" required>
 
-                <button onclick="simulateRocketMotion()">Simulate Rocket Motion</button>
-            </div>
+            <label for="m0">Initial Mass of the Rocket (m0) in kg:</label>
+            <input type="number" id="m0" placeholder="5000" step="any" required>
 
-            <!-- Canvas for Graphs -->
+            <label for="x0">Initial Position of the Rocket (x0) in meters:</label>
+            <input type="number" id="x0" placeholder="0" step="any" required>
+
+            <label for="v_prime">Gas Propulsion Speed (v'') in m/s:</label>
+            <input type="number" id="v_prime" placeholder="3000" step="any" required>
+
+            <button onclick="simulateRocketMotion()">Simulate Rocket Motion</button>
+
             <div class="graph-section">
                 <canvas id="velocityChart"></canvas>
                 <canvas id="positionChart"></canvas>
             </div>
         </section>
-    </main>
 
-    <!-- Footer Section -->
-    <footer>
-        <p>Group 3, Class CC04 | November, 2024</p>
-    </footer>
 
-    <!-- JavaScript Code for Simulation and Plotting -->
-    <script>
-        function simulateRocketMotion() {
-            // Get user inputs
-            const dm_dt = parseFloat(document.getElementById("dm_dt").value);
-            const m0 = parseFloat(document.getElementById("m0").value);
-            const x0 = parseFloat(document.getElementById("x0").value);
-            const v_prime = parseFloat(document.getElementById("v_prime").value);
-
-            // Define time range for simulation
-            const timeRange = Array.from({ length: 500 }, (_, i) => i * 0.1); // 0 to 50 seconds
-
-            // Calculate mass, velocity, and position over time
-            const mass = timeRange.map(t => m0 + dm_dt * t);
-            const velocity = timeRange.map(t => -v_prime * dm_dt / (m0 + dm_dt * t));
-            const position = velocity.reduce((acc, v, i) => {
-                const dt = i === 0 ? 0 : timeRange[i] - timeRange[i - 1];
-                acc.push(acc[acc.length - 1] + v * dt);
-                return acc;
-            }, [x0]);
-
-            // Plot Velocity and Position
-            plotGraph('velocityChart', 'Rocket Velocity Over Time', timeRange, velocity, 'Velocity (m/s)');
-            plotGraph('positionChart', 'Rocket Position Over Time', timeRange, position, 'Position (m)');
-        }
-
-        function plotGraph(canvasId, title, labels, data, yLabel) {
-            const ctx = document.getElementById(canvasId).getContext('2d');
-            new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        label: yLabel,
-                        data: data,
-                        borderColor: '#AD49E1',
-                        borderWidth: 2,
-                        fill: false,
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        title: {
-                            display: true,
-                            text: title,
-                            color: '#333',
-                            font: {
-                                size: 18,
-                                family: '
-<section id="results">
-            <h3>RESULTS AND DISCUSSION</h3>
+        <section id="results">
+            <h3>4. Results and Discussion</h3>
             <p>Analysis of velocity, position, and acceleration graphs, and the effect of environmental factors.</p>
         </section>
 
         <section id="conclusion">
-            <h3>CONCLUSION</h3>
+            <h3>5. Conclusion</h3>
             <p>Summarize findings and propose future research directions.</p>
         </section>
 
         <section id="references">
-            <h3>REFERENCES</h3>
+            <h3>6. References</h3>
             <ul>
                 <li><a href="https://nasa.gov">NASA</a></li>
                 <li><a href="#">Rocket Mechanics Guide</a></li>
@@ -330,40 +292,24 @@ disp(x_solution);
         </section>
 
         <section id="acknowledgments">
-            <h3>ACKNOWLEDGMENTS</h3>
-            <div class="team-members">
-                <div class="member">
-                    <img src="link-to-image/2452192.png" alt="Đoàn Công Duy">
-                    <p>Đoàn Công Duy</p>
-                    <p>2452192</p>
-                </div>
-                <div class="member">
-                    <img src="link-to-image/2452900.png" alt="Đoàn Ngọc Uyên Nhi">
-                    <p>Đoàn Ngọc Uyên Nhi</p>
-                    <p>2452900</p>
-                </div>
-                <div class="member">
-                    <img src="link-to-image/2452493.png" alt="Hồ Sĩ Quốc Khánh">
-                    <p>Hồ Sĩ Quốc Khánh</p>
-                    <p>2452493</p>
-                </div>
-                <div class="member">
-                    <img src="link-to-image/2452576.png" alt="Hoàng Nguyễn Anh Khôi">
-                    <p>Hoàng Nguyễn Anh Khôi</p>
-                    <p>2452576</p>
-                </div>
-                <div class="member">
-                    <img src="link-to-image/2450018.png" alt="Hứa Tuệ Minh">
-                    <p>Hứa Tuệ Minh</p>
-                    <p>2450018</p>
-                </div>
-            </div>
+            <h3>7. Acknowledgments</h3>
+            <p>We sincerely thank our mentors, peers, and family for their support.</p>
+            <h4>Team Members:</h4>
+            <ul>
+                <li><strong>2452192:</strong> Đoàn Công Duy</li>
+                <li><strong>2452900:</strong> Đoàn Ngọc Uyên Nhi</li>
+                <li><strong>2452493:</strong> Hồ Sĩ Quốc Khánh</li>
+                <li><strong>2452576:</strong> Hoàng Nguyễn Anh Khôi</li>
+                <li><strong>2450018:</strong> Hứa Tuệ Minh</li>
+            </ul>
         </section>
     </main>
 
     <footer>
         <p>Group 3, Class CC04 | November, 2024</p>
     </footer>
-    <script src="script.js"></script>
+<script src="script.js"></script>
+
+
 </body>
 </html>
