@@ -155,6 +155,77 @@
 
     <!-- Main Content Section -->
     <main>
+        <section id="introduction">
+            <h3>INTRODUCTION</h3>
+            <p>Overview of rocket motion and its real-world applications in aerospace and military fields.</p>
+        </section>
+
+        <section id="theory">
+            <h3>THEORETICAL BACKGROUND</h3>
+            <ul>
+                <li><strong>NEWTON'S LAWS:</strong> Inertia, force, and reaction principles.</li>
+                <li><strong>MOMENTUM CONSERVATION:</strong> Application in rocket propulsion.</li>
+                <li><strong>PROBLEM-SOLVING METHOD:</strong> Steps for calculating motion parameters.</li>
+            </ul>
+            
+        </section>
+<section id="matlab">
+            <h3>MATLAB CODE AND EXPLANATION</h3>
+            <textarea readonly>
+% Rocket Motion Analysis Using Symbolic Calculations
+
+% Define symbolic variables
+syms m(t) v(t) x(t) dm_dt v_prime t
+
+% Prompt user for input values
+dm_dt_val = input('Enter the fuel combustion rate (dm/dt) in kg/s (negative value): ');
+m0_val = input('Enter the initial mass of the rocket (m0) in kg: ');
+x0_val = input('Enter the initial position of the rocket (x0) in meters: ');
+v_prime_val = input('Enter the gas propulsion speed (v'') in m/s: ');
+
+% Set up the equation for mass as a function of time
+m = m0_val + dm_dt_val * t;
+
+% Define Newton's second law for rocket motion
+eqn = diff(v, t) * m == -v_prime_val * dm_dt_val;
+
+% Solve for velocity as a function of time
+v_solution = dsolve(eqn, v(0) == 0);  % Assume initial velocity v(0) = 0
+
+% Solve for position by integrating velocity
+x_solution = int(v_solution, t) + x0_val;
+
+% Convert symbolic solutions to MATLAB functions for plotting
+v_func = matlabFunction(v_solution, 'Vars', t);
+x_func = matlabFunction(x_solution, 'Vars', t);
+
+% Plot the results over time
+time_range = 0:0.1:50; % Adjust the time range as needed
+
+figure;
+subplot(2,1,1);
+fplot(v_func, [0 max(time_range)], 'LineWidth', 1.5);
+title('Rocket Velocity Over Time');
+xlabel('Time (s)');
+ylabel('Velocity (m/s)');
+grid on;
+
+subplot(2,1,2);
+fplot(x_func, [0 max(time_range)], 'LineWidth', 1.5);
+title('Rocket Position Over Time');
+xlabel('Time (s)');
+ylabel('Position (m)');
+grid on;
+
+% Display the symbolic expressions
+disp('The symbolic solution for velocity as a function of time is:');
+disp(v_solution);
+disp('The symbolic solution for position as a function of time is:');
+disp(x_solution);
+
+            </textarea>
+        </section>
+        
         <!-- MATLAB Code Simulation Section -->
         <section id="matlab">
             <h3>MATLAB CODE AND SIMULATION</h3>
@@ -240,3 +311,59 @@
                             font: {
                                 size: 18,
                                 family: '
+<section id="results">
+            <h3>RESULTS AND DISCUSSION</h3>
+            <p>Analysis of velocity, position, and acceleration graphs, and the effect of environmental factors.</p>
+        </section>
+
+        <section id="conclusion">
+            <h3>CONCLUSION</h3>
+            <p>Summarize findings and propose future research directions.</p>
+        </section>
+
+        <section id="references">
+            <h3>REFERENCES</h3>
+            <ul>
+                <li><a href="https://nasa.gov">NASA</a></li>
+                <li><a href="#">Rocket Mechanics Guide</a></li>
+            </ul>
+        </section>
+
+        <section id="acknowledgments">
+            <h3>ACKNOWLEDGMENTS</h3>
+            <div class="team-members">
+                <div class="member">
+                    <img src="link-to-image/2452192.png" alt="Đoàn Công Duy">
+                    <p>Đoàn Công Duy</p>
+                    <p>2452192</p>
+                </div>
+                <div class="member">
+                    <img src="link-to-image/2452900.png" alt="Đoàn Ngọc Uyên Nhi">
+                    <p>Đoàn Ngọc Uyên Nhi</p>
+                    <p>2452900</p>
+                </div>
+                <div class="member">
+                    <img src="link-to-image/2452493.png" alt="Hồ Sĩ Quốc Khánh">
+                    <p>Hồ Sĩ Quốc Khánh</p>
+                    <p>2452493</p>
+                </div>
+                <div class="member">
+                    <img src="link-to-image/2452576.png" alt="Hoàng Nguyễn Anh Khôi">
+                    <p>Hoàng Nguyễn Anh Khôi</p>
+                    <p>2452576</p>
+                </div>
+                <div class="member">
+                    <img src="link-to-image/2450018.png" alt="Hứa Tuệ Minh">
+                    <p>Hứa Tuệ Minh</p>
+                    <p>2450018</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Group 3, Class CC04 | November, 2024</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
