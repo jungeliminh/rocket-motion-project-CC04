@@ -19,15 +19,76 @@
             <p>This project involves simulating rocket motion using mathematical models and displaying dynamic graphs. You can explore both the full MATLAB code explanation and input your parameters for real-time visualization.</p>
         </section>
 
-        <section class="code">
-            <h2>MATLAB Code and Explanation</h2>
-            <p>Below is the full MATLAB code for the Rocket Motion Project:</p>
-            <pre>
+<section class="code">
+    <h2>MATLAB Code and Explanation</h2>
+    <p>The MATLAB program simulates the motion of a rocket considering fuel combustion, gravity, and air resistance. It computes symbolic and numerical solutions for mass, velocity, and position over time, and generates dynamic graphs for visualization.</p>
+
+    <article>
+        <h3>Key Features</h3>
+        <ul>
+            <li>Symbolic calculations for motion equations.</li>
+            <li>Dynamic visualization of Mass, Velocity, and Position over Time.</li>
+            <li>Key MATLAB functions: <code>syms</code>, <code>int</code>, <code>cumtrapz</code>, <code>plot</code>.</li>
+        </ul>
+    </article>
+
+    <article>
+        <h3>MATLAB Code Overview</h3>
+        <p><strong>1. Input Parameters:</strong> Users provide fuel combustion speed, initial mass, position, gas propulsion speed, and other parameters.</p>
+        <p><strong>2. Symbolic Calculations:</strong> Determines mass, velocity, and position equations over time using symbolic integration.</p>
+        <p><strong>3. Numerical Simulation:</strong> Generates time-based vectors for numerical mass, velocity, and position calculations.</p>
+        <p><strong>4. Visualization:</strong> Plots three key graphs—Mass vs Time, Velocity vs Time, Position vs Time.</p>
+    </article>
+
+    <article>
+        <h3>Full MATLAB Code</h3>
+        <pre>
 % MATLAB Program for Rocket Motion Analysis
-...
-            </pre>
-            <p>The code calculates the rocket's mass, velocity, and position over time and plots them dynamically. For detailed explanations, hover over the code sections for insights.</p>
-        </section>
+clear; clc;
+fprintf('Enter the parameters for rocket motion:\n');
+dm_dt = input('Fuel combustion speed [kg/s]: '); 
+m0 = input('Initial mass of the rocket [kg]: ');
+x0 = input('Initial position [m]: ');
+v_gas = input('Gas propulsion speed [m/s]: ');
+t_end = input('Simulation end time [s]: ');
+g = input('Gravitational acceleration [m/s^2]: ');
+
+syms t
+m = m0 - dm_dt * t;
+v_rocket = v_gas * log(m0 / m) - g * t;
+x_rocket = int(v_rocket, t) + x0;
+
+time = linspace(0, t_end, 100);
+m_num = m0 - dm_dt * time;
+fuel_depletion_time = m0 / dm_dt;
+v_rocket_num = zeros(size(time));
+x_rocket_num = zeros(size(time));
+
+for i = 1:length(time)
+    if time(i) <= fuel_depletion_time
+        m_t = m0 - dm_dt * time(i);
+        v_rocket_num(i) = v_gas * log(m0 / m_t) - g * time(i);
+    else
+        v_rocket_num(i) = v_rocket_num(find(time <= fuel_depletion_time, 1, 'last')) - g * (time(i) - fuel_depletion_time);
+    end
+end
+
+x_rocket_num = cumtrapz(time, v_rocket_num) + x0;
+
+subplot(3, 1, 1);
+plot(time, max(0, m_num)); title('Mass vs Time');
+xlabel('Time [s]'); ylabel('Mass [kg]');
+
+subplot(3, 1, 2);
+plot(time, v_rocket_num); title('Velocity vs Time');
+xlabel('Time [s]'); ylabel('Velocity [m/s]');
+
+subplot(3, 1, 3);
+plot(time, x_rocket_num); title('Position vs Time');
+xlabel('Time [s]'); ylabel('Position [m]');
+        </pre>
+    </article>
+</section>
 
         <section class="simulation">
             <h2>Simulation</h2>
