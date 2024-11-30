@@ -3,96 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A web tool to simulate rocket motion analysis based on user inputs.">
-    <meta name="author" content="Tue Minh">
+    <meta name="description" content="Rocket motion simulation with customizable inputs and a modern design.">
     <title>Rocket Motion Analysis</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Futura:wght@400;700&family=Lora&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Main Container -->
-    <div class="container">
-        <!-- Header Section -->
-        <header class="main-header">
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
             <h1>Rocket Motion Analysis</h1>
-            <p>Analyze the motion of a rocket with adjustable parameters. Enter values below to simulate motion dynamics.</p>
-        </header>
+            <p>Explore the dynamics of rocket motion with a professional and stylish simulation tool.</p>
+            <button class="cta-button">Start Your Simulation</button>
+        </div>
+    </section>
 
-        <!-- Input Form Section -->
-        <section class="input-section">
-            <h2>Input Parameters</h2>
-            <form id="rocketForm" aria-label="Rocket motion input form">
-                <!-- Fuel Combustion Speed -->
-                <div class="input-group">
-                    <label for="dm_dt">Fuel Combustion Speed (dm/dt) [kg/s]:</label>
-                    <input type="number" id="dm_dt" placeholder="e.g., 5" min="0" step="0.1" required>
-                </div>
-                <!-- Initial Mass -->
-                <div class="input-group">
-                    <label for="m0">Initial Mass of Rocket (m0) [kg]:</label>
-                    <input type="number" id="m0" placeholder="e.g., 500" min="0" step="1" required>
-                </div>
-                <!-- Initial Position -->
-                <div class="input-group">
-                    <label for="x0">Initial Position (x0) [m]:</label>
-                    <input type="number" id="x0" placeholder="e.g., 0" min="0" step="1" required>
-                </div>
-                <!-- Gas Propulsion Speed -->
-                <div class="input-group">
-                    <label for="v_gas">Gas Propulsion Speed (v_gas) [m/s]:</label>
-                    <input type="number" id="v_gas" placeholder="e.g., 3000" min="0" step="1" required>
-                </div>
-                <!-- End Time -->
-                <div class="input-group">
-                    <label for="t_end">End Time for Simulation [s]:</label>
-                    <input type="number" id="t_end" placeholder="e.g., 100" min="0" step="1" required>
-                </div>
-                <!-- Gravitational Acceleration -->
-                <div class="input-group">
-                    <label for="g">Gravitational Acceleration (g) [m/s²]:</label>
-                    <input type="number" id="g" placeholder="e.g., 9.81" min="0" step="0.01" required>
-                </div>
-                <!-- Air Resistance Coefficient -->
-                <div class="input-group">
-                    <label for="k">Air Resistance Coefficient (k) [Ns/m]:</label>
-                    <input type="number" id="k" placeholder="e.g., 0.1" min="0" step="0.01" required>
-                </div>
-                <!-- Submit Button -->
-                <button type="button" id="simulateBtn">Simulate</button>
-            </form>
-        </section>
-
-        <!-- Results Section -->
-        <section class="results-section">
-            <h2>Simulation Results</h2>
-            <div id="results" class="results-container">
-                <!-- Final Velocity -->
-                <div class="result-item">
-                    <strong>Final Velocity:</strong>
-                    <span id="finalVelocity">-</span> m/s
-                </div>
-                <!-- Final Position -->
-                <div class="result-item">
-                    <strong>Final Position:</strong>
-                    <span id="finalPosition">-</span> m
-                </div>
-                <!-- Fuel Depletion Time -->
-                <div class="result-item">
-                    <strong>Fuel Depletion Time:</strong>
-                    <span id="fuelDepletionTime">-</span> s
-                </div>
+    <!-- Input Section -->
+    <section class="input-section">
+        <h2>Input Parameters</h2>
+        <form id="rocketForm">
+            <div class="input-group">
+                <label for="dm_dt">Fuel Combustion Speed (dm/dt) [kg/s]:</label>
+                <input type="number" id="dm_dt" placeholder="e.g., 5" required>
             </div>
-            <!-- Placeholder for Graphs -->
-            <canvas id="resultsGraph" aria-label="Rocket motion graph"></canvas>
-        </section>
+            <div class="input-group">
+                <label for="m0">Initial Mass of Rocket (m0) [kg]:</label>
+                <input type="number" id="m0" placeholder="e.g., 500" required>
+            </div>
+            <div class="input-group">
+                <label for="x0">Initial Position (x0) [m]:</label>
+                <input type="number" id="x0" placeholder="e.g., 0" required>
+            </div>
+            <div class="input-group">
+                <label for="v_gas">Gas Propulsion Speed (v_gas) [m/s]:</label>
+                <input type="number" id="v_gas" placeholder="e.g., 3000" required>
+            </div>
+            <div class="input-group">
+                <label for="t_end">End Time for Simulation [s]:</label>
+                <input type="number" id="t_end" placeholder="e.g., 100" required>
+            </div>
+            <div class="input-group">
+                <label for="g">Gravitational Acceleration (g) [m/s²]:</label>
+                <input type="number" id="g" placeholder="e.g., 9.81" required>
+            </div>
+            <button type="button" id="simulateBtn" class="simulate-button">Simulate</button>
+        </form>
+    </section>
 
-        <!-- Footer Section -->
-        <footer class="main-footer">
-            <p>Created by Tue Minh | Designed with ❤️ for educational purposes.</p>
-        </footer>
-    </div>
+    <!-- Results Section -->
+    <section class="results-section">
+        <h2>Simulation Results</h2>
+        <div id="results">
+            <p><strong>Final Velocity:</strong> <span id="finalVelocity">-</span> m/s</p>
+            <p><strong>Final Position:</strong> <span id="finalPosition">-</span> m</p>
+            <p><strong>Fuel Depletion Time:</strong> <span id="fuelDepletionTime">-</span> s</p>
+        </div>
+        <canvas id="resultsGraph"></canvas>
+    </section>
 
-    <!-- External Script -->
+    <!-- Table Section -->
+    <section class="table-section">
+        <h2>Detailed Results Table</h2>
+        <div class="table-container">
+            <table id="resultsTable">
+                <thead>
+                    <tr>
+                        <th>Time (s)</th>
+                        <th>Mass (kg)</th>
+                        <th>Velocity (m/s)</th>
+                        <th>Position (m)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Table rows will be populated dynamically -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Created with ❤️ by Tue Minh</p>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
