@@ -3,107 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Physic 1: Rocket Motion Project</title>
-    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="A web tool to simulate rocket motion analysis based on user inputs.">
+    <meta name="author" content="Tue Minh">
+    <title>Rocket Motion Analysis</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Futura:wght@400;700&family=Lora&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1 style="color: #ED3EF7; font-family: 'Abril Fatface', cursive;">PHYSIC 1: ROCKET MOTION PROJECT</h1>
-        <h3 style="font-family: 'Lato', sans-serif; color: #26355D;">2452192: Đoàn Công Duy | 2452900: Đoàn Ngọc Uyên Nhi | 2452493: Hồ Sĩ Quốc Khánh | 2452576: Hoàng Nguyễn Anh Khôi | 2450018: Hứa Tuệ Minh</h3>
-    </header>
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header Section -->
+        <header class="main-header">
+            <h1>Rocket Motion Analysis</h1>
+            <p>Analyze the motion of a rocket with adjustable parameters. Enter values below to simulate motion dynamics.</p>
+        </header>
 
-    <main>
-        <!-- Section 1: About the Project -->
-        <section class="intro">
-            <h2 style="color: #ED3EF7; font-family: 'Abril Fatface', cursive;">I. About the Project</h2>
-            <p>This project focuses on simulating rocket motion under the influence of gravity, fuel combustion, and air resistance. It involves calculating symbolic and numerical solutions, plotting graphs, and providing a clear, visual understanding of the rocket's trajectory.</p>
-            <h3 style="color: #0B2F9F;">Team Members</h3>
-            <ul style="list-style-type: disc; margin-left: 20px;">
-                <li>2452192: Đoàn Công Duy</li>
-                <li>2452900: Đoàn Ngọc Uyên Nhi</li>
-                <li>2452493: Hồ Sĩ Quốc Khánh</li>
-                <li>2452576: Hoàng Nguyễn Anh Khôi</li>
-                <li>2450018: Hứa Tuệ Minh</li>
-            </ul>
-        </section>
-
-        <!-- Section 2: MATLAB Code and Explanation -->
-        <section class="code">
-            <h2 style="color: #ED3EF7; font-family: 'Abril Fatface', cursive;">II. MATLAB Code and Explanation</h2>
-            <article>
-                <h3 style="color: #0B2F9F;">Key Features</h3>
-                <ul>
-                    <li>Derives symbolic equations for mass, velocity, and position.</li>
-                    <li>Simulates rocket motion using real-world physics formulas.</li>
-                    <li>Visualizes motion with graphs: Mass vs Time, Velocity vs Time, Position vs Time.</li>
-                </ul>
-            </article>
-            <article>
-                <h3 style="color: #0B2F9F;">MATLAB Code Overview</h3>
-                <p>The MATLAB code calculates motion based on <strong>Newton's Second Law</strong>. The following equations govern the simulation:</p>
-                <ul>
-                    <li><strong>Mass:</strong> \( m(t) = m_0 - \frac{dm}{dt} \cdot t \)</li>
-                    <li><strong>Velocity:</strong> \( v(t) = v_{\text{gas}} \cdot \ln\left(\frac{m_0}{m}\right) - g \cdot t \)</li>
-                    <li><strong>Position:</strong> Integration of \( v(t) \) to find \( x(t) \).</li>
-                </ul>
-                <p>The program visualizes these equations numerically and symbolically for better analysis.</p>
-                <div style="background-color: black; color: white; padding: 10px; border-radius: 5px; font-family: monospace;">
-                    <pre>
-% MATLAB Program for Rocket Motion Analysis
-clear; clc;
-dm_dt = input('Fuel combustion speed [kg/s]: '); 
-m0 = input('Initial mass of the rocket [kg]: ');
-...
-                    </pre>
-                </div>
-            </article>
-        </section>
-
-        <!-- Section 3: Simulation -->
-        <section class="simulation">
-            <h2 style="color: #ED3EF7; font-family: 'Abril Fatface', cursive;">III. Simulation</h2>
-            <form id="rocketForm">
+        <!-- Input Form Section -->
+        <section class="input-section">
+            <h2>Input Parameters</h2>
+            <form id="rocketForm" aria-label="Rocket motion input form">
+                <!-- Fuel Combustion Speed -->
                 <div class="input-group">
-                    <label for="dm_dt">Fuel combustion speed (dm/dt) [kg/s]:</label>
-                    <input type="number" id="dm_dt" step="0.1" required>
+                    <label for="dm_dt">Fuel Combustion Speed (dm/dt) [kg/s]:</label>
+                    <input type="number" id="dm_dt" placeholder="e.g., 5" min="0" step="0.1" required>
                 </div>
+                <!-- Initial Mass -->
                 <div class="input-group">
-                    <label for="m0">Initial mass of the rocket (m0) [kg]:</label>
-                    <input type="number" id="m0" step="0.1" required>
+                    <label for="m0">Initial Mass of Rocket (m0) [kg]:</label>
+                    <input type="number" id="m0" placeholder="e.g., 500" min="0" step="1" required>
                 </div>
+                <!-- Initial Position -->
                 <div class="input-group">
-                    <label for="x0">Initial position of the rocket (x0) [m]:</label>
-                    <input type="number" id="x0" step="0.1" required>
+                    <label for="x0">Initial Position (x0) [m]:</label>
+                    <input type="number" id="x0" placeholder="e.g., 0" min="0" step="1" required>
                 </div>
+                <!-- Gas Propulsion Speed -->
                 <div class="input-group">
-                    <label for="v_gas">Rocket gas propulsion speed (v_gas) [m/s]:</label>
-                    <input type="number" id="v_gas" step="0.1" required>
+                    <label for="v_gas">Gas Propulsion Speed (v_gas) [m/s]:</label>
+                    <input type="number" id="v_gas" placeholder="e.g., 3000" min="0" step="1" required>
                 </div>
+                <!-- End Time -->
                 <div class="input-group">
-                    <label for="t_end">End time for simulation [s]:</label>
-                    <input type="number" id="t_end" step="1" required>
+                    <label for="t_end">End Time for Simulation [s]:</label>
+                    <input type="number" id="t_end" placeholder="e.g., 100" min="0" step="1" required>
                 </div>
+                <!-- Gravitational Acceleration -->
                 <div class="input-group">
-                    <label for="g">Gravitational acceleration (g) [m/s²]:</label>
-                    <input type="number" id="g" step="0.1" required>
+                    <label for="g">Gravitational Acceleration (g) [m/s²]:</label>
+                    <input type="number" id="g" placeholder="e.g., 9.81" min="0" step="0.01" required>
                 </div>
-                <button type="button" id="simulateButton">Run Simulation</button>
+                <!-- Air Resistance Coefficient -->
+                <div class="input-group">
+                    <label for="k">Air Resistance Coefficient (k) [Ns/m]:</label>
+                    <input type="number" id="k" placeholder="e.g., 0.1" min="0" step="0.01" required>
+                </div>
+                <!-- Submit Button -->
+                <button type="button" id="simulateBtn">Simulate</button>
             </form>
-            <div id="charts">
-                <canvas id="massChart"></canvas>
-                <canvas id="velocityChart"></canvas>
-                <canvas id="positionChart"></canvas>
-            </div>
         </section>
-    </main>
 
-    <footer>
-        <p style="font-family: 'Lato', sans-serif; text-align: center;">Group 3 - Class: CC04 | November, 2024</p>
-    </footer>
+        <!-- Results Section -->
+        <section class="results-section">
+            <h2>Simulation Results</h2>
+            <div id="results" class="results-container">
+                <!-- Final Velocity -->
+                <div class="result-item">
+                    <strong>Final Velocity:</strong>
+                    <span id="finalVelocity">-</span> m/s
+                </div>
+                <!-- Final Position -->
+                <div class="result-item">
+                    <strong>Final Position:</strong>
+                    <span id="finalPosition">-</span> m
+                </div>
+                <!-- Fuel Depletion Time -->
+                <div class="result-item">
+                    <strong>Fuel Depletion Time:</strong>
+                    <span id="fuelDepletionTime">-</span> s
+                </div>
+            </div>
+            <!-- Placeholder for Graphs -->
+            <canvas id="resultsGraph" aria-label="Rocket motion graph"></canvas>
+        </section>
 
+        <!-- Footer Section -->
+        <footer class="main-footer">
+            <p>Created by Tue Minh | Designed with ❤️ for educational purposes.</p>
+        </footer>
+    </div>
+
+    <!-- External Script -->
     <script src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
 </body>
 </html>
