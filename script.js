@@ -7,8 +7,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const populateTable = (time, mass, velocity, position) => {
         const tableBody = document.querySelector("#resultsTable tbody");
-        tableBody.innerHTML = "";
+        tableBody.innerHTML = ""; // Clear previous table rows
 
+        // Add new rows
         for (let i = 0; i < time.length; i++) {
             const row = `
                 <tr>
@@ -25,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const generateGraph = (time, mass, velocity, position) => {
         if (Chart.getChart("resultsGraph")) Chart.getChart("resultsGraph").destroy();
 
+        // Create graph
         new Chart(resultsGraph, {
             type: "line",
             data: {
@@ -38,7 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
-    simulateBtn.addEventListener("click", () => {
-        const dm_dt = parseFloat(document.getElementById("dm_dt").value);
-        const m0 = parseFloat(document.getElementById("m0").value);
-        const x0 =
+    const simulateRocketMotion = () => {
+        const dm_dt = parseFloat(document.getElementById("dm_dt").value); // Fuel burn rate
+        const m0 = parseFloat(document.getElementBy
